@@ -15,7 +15,7 @@ var app = express();
 app.use(helmet());
 
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://vidoje:pass2019@ds135335.mlab.com:35335/vidoje-biblioteka';
+var mongoDB = process.env.MONGODB_URI || 'mongodb://vidoje:pass2019@ds135335.mlab.com:35335/vidoje-biblioteka';
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
